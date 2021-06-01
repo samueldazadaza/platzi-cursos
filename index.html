@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reto - cursos - horas platzi</title>
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app" class="bg-gray-200 w-full">
+        <h1 class="bg-blue-900 text-gray-300 p-5 text-center text-lg">
+          📚Mis Cursos de Platzi💚
+        </h1>
+        <div class="my-5 justify-center sm:flex inline-block w-100">
+            <input type="text" placeholder="Titulo del curso" v-model="title" class="p-2 m-2 w-72 flex justify-center"/>
+            <input type="number" placeholder="Horas" v-model="time"
+            class="p-2 m-2 w-72 flex justify-center"/>
+            <button @click="addCourse" class="btn bg-gray-900 rounded text-gray-200 p-2 flex justify-center mx-auto">Guardar Curso</button>
+        </div>
+        </fieldset>
+        <div class="mx-5 justify-center">
+          <h3 class="bg-gray-300 rounded px-6 my-4 border text-center text-lg">Lista de Cursos:</h3>
+          <p class="flex justify-center text-lg m-4" v-show="!courses.length">Aun no has realizado cursos!!</p>
+          <div v-show="courses.length">
+            <ol class="m-3">
+              <!-- Lista de cursos -->
+              <li v-for="item in courses" class="border-b-2 border-blue-900 flex justify-between">
+                <span class="mx-4"> {{ item.title }} </span>
+                <span class="mx-4"> {{ item.time }} </span>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <footer>
+          <p class="bg-blue-900 text-gray-300 px-5 py-3 text-center text-lg">
+            Llevo <strong>{{ totalTime }}</strong> horas aprendiendo en Platzi.
+            <b class="px-3 text-green-400">#NuncaParesDeAprender 💚</b>
+          </p>
+        </footer>
+      </div>
+
+      <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+      <script src="app.js"></script>
+    
+</body>
+</html>
